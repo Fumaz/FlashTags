@@ -8,6 +8,8 @@ import org.bukkit.command.Command;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.stream.Collectors;
+
 public class TagCommand implements PlayerCommandExecutor {
 
     private final TagManager tagManager;
@@ -19,7 +21,11 @@ public class TagCommand implements PlayerCommandExecutor {
     @Override
     public void onCommand(@NotNull Player player, @NotNull Command command, @NotNull String[] strings) {
         if (strings.length != 1) {
-            player.sendMessage(ChatColor.RED + "Usage: /tag <name/off>");
+            player.sendMessage(ChatColor.GREEN + "You own the following tags:");
+            player.sendMessage(tagManager.getOwnedTags(player)
+                    .stream()
+                    .map(Tag::getDisplay)
+                    .collect(Collectors.joining(ChatColor.RESET + "" + ChatColor.GRAY + ", " + ChatColor.LIGHT_PURPLE, ChatColor.LIGHT_PURPLE.toString(), ChatColor.GRAY.toString())));
             return;
         }
 
