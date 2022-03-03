@@ -1,0 +1,6 @@
+name: FlashTags
+version: '${project.version}'
+main: dev.fumaz.flashtags.FlashTags
+api-version: 1.18
+authors: [ Fumaz ]
+website: https://fumaz.dev
