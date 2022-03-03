@@ -9,3 +9,4 @@ commands:
   givetag: { }
   createtag: { }
   deletetag: { }
+  removetag: { }

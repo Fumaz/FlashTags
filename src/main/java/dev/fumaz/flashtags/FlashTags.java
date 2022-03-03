@@ -4,6 +4,7 @@ import dev.fumaz.commons.bukkit.misc.Logging;
 import dev.fumaz.flashtags.command.CreateTagCommand;
 import dev.fumaz.flashtags.command.DeleteTagCommand;
 import dev.fumaz.flashtags.command.GiveTagCommand;
+import dev.fumaz.flashtags.command.RemoveTagCommand;
 import dev.fumaz.flashtags.command.TagCommand;
 import dev.fumaz.flashtags.database.DatabaseManager;
 import dev.fumaz.flashtags.tag.TagManager;
@@ -25,6 +26,7 @@ public final class FlashTags extends JavaPlugin {
         getCommand("givetag").setExecutor(new GiveTagCommand(tagManager));
         getCommand("createtag").setExecutor(new CreateTagCommand(tagManager));
         getCommand("deletetag").setExecutor(new DeleteTagCommand(tagManager));
+        getCommand("removetag").setExecutor(new RemoveTagCommand(tagManager));
     }
 
     public DatabaseManager getDatabaseManager() {

@@ -17,6 +17,11 @@ public class DeleteTagCommand implements VoidCommandExecutor {
 
     @Override
     public void onCommand(@NotNull CommandSender commandSender, @NotNull Command command, @NotNull String[] strings) {
+        if (!commandSender.hasPermission("flashtags.delete")) {
+            commandSender.sendMessage(ChatColor.RED + "You don't have permissions to execute this command.");
+            return;
+        }
+
         if (strings.length != 1) {
             commandSender.sendMessage(ChatColor.RED + "Usage: /deletetag <tag>");
             return;
