@@ -24,7 +24,7 @@ public class DatabaseManager {
         FileConfiguration configuration = plugin.getConfig();
 
         source = new HikariDataSource();
-        source.setJdbcUrl("jdbc://mysql://" + configuration.getString("database.host") + "/" + configuration.getString("database.name") + "?useUnicode=yes&characterEncoding=UTF-8");
+        source.setJdbcUrl("jdbc:mysql://" + configuration.getString("database.host") + "/" + configuration.getString("database.database") + "?useUnicode=yes&characterEncoding=UTF-8");
         source.setUsername(configuration.getString("database.username"));
         source.setPassword(configuration.getString("database.password"));
         source.setLeakDetectionThreshold(45 * 1000);

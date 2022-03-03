@@ -143,11 +143,19 @@ public class TagManager {
     }
 
     public Set<Tag> getOwnedTags(Player player) {
-        return ownedTags.getOrDefault(player.getUniqueId(), new HashSet<>())
+        Set<Tag> owned = ownedTags.getOrDefault(player.getUniqueId(), new HashSet<>())
                 .stream()
                 .map(this::getByName)
                 .filter(Objects::nonNull)
                 .collect(Collectors.toSet());
+
+        for (Tag tag : tags) {
+            if (player.hasPermission(tag.getPermission())) {
+                owned.add(tag);
+            }
+        }
+
+        return owned;
     }
 
     public Tag getSelectedTag(Player player) {

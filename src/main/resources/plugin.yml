@@ -4,3 +4,8 @@ main: dev.fumaz.flashtags.FlashTags
 api-version: 1.13
 authors: [ Fumaz ]
 website: https://fumaz.dev
+commands:
+  tag: { }
+  givetag: { }
+  createtag: { }
+  deletetag: { }

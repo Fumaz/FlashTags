@@ -1,5 +1,7 @@
 package dev.fumaz.flashtags.tag;
 
+import net.md_5.bungee.api.ChatColor;
+
 import java.util.Objects;
 
 public class Tag {
@@ -9,7 +11,7 @@ public class Tag {
 
     public Tag(String name, String display) {
         this.name = name;
-        this.display = display;
+        this.display = ChatColor.translateAlternateColorCodes('&', display);
     }
 
     public String getName() {
@@ -18,6 +20,10 @@ public class Tag {
 
     public String getDisplay() {
         return display;
+    }
+
+    public String getPermission() {
+        return "flashtags.tag." + name;
     }
 
     @Override
